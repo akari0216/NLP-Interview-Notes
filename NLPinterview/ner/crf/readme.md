@@ -2,11 +2,25 @@
 
 > 作者：杨夕
 > 
-> 论文链接：https://arxiv.org/pdf/1810.04805.pdf
+> 介绍：本项目是作者们根据个人面试和经验总结出的自然语言处理(NLP)面试准备的学习笔记与资料，该资料目前包含 自然语言处理各领域的 面试题积累。
 > 
-> 本文链接：https://github.com/km1994/nlp_paper_study
+> NLP 百面百搭 地址：https://github.com/km1994/NLP-Interview-Notes
 > 
-> 个人介绍：大佬们好，我叫杨夕，该项目主要是本人在研读顶会论文和复现经典论文过程中，所见、所思、所想、所闻，可能存在一些理解错误，希望大佬们多多指正。
+> **[手机版NLP百面百搭](https://mp.weixin.qq.com/s?__biz=MzAxMTU5Njg4NQ==&mid=100005719&idx=3&sn=5d8e62993e5ecd4582703684c0d12e44&chksm=1bbff26d2cc87b7bf2504a8a4cafc60919d722b6e9acbcee81a626924d80f53a49301df9bd97&scene=18#wechat_redirect)**
+> 
+> 推荐系统 百面百搭 地址：https://github.com/km1994/RES-Interview-Notes
+> 
+> **[手机版推荐系统百面百搭](https://mp.weixin.qq.com/s/b_KBT6rUw09cLGRHV_EUtw)**
+> 
+> 搜索引擎 百面百搭 地址：https://github.com/km1994/search-engine-Interview-Notes 【编写ing】
+> 
+> NLP论文学习笔记：https://github.com/km1994/nlp_paper_study
+> 
+> 推荐系统论文学习笔记：https://github.com/km1994/RS_paper_study
+> 
+> GCN 论文学习笔记：https://github.com/km1994/GCN_study
+> 
+> **推广搜 军火库**：https://github.com/km1994/recommendation_advertisement_search
 > 
 > 【注：手机阅读可能图片打不开！！！】
 
@@ -17,7 +31,7 @@
 ### 1.1 什么是概率图模型？
 
 概率图模型（Probabilistic Graphical Model， PGM），简称图模型（Graphical Model，GM），是指一种用图结构来描述**多元随机变量之间条件独立性的概率模型（注意条件独立性）**，从而给研究高维空间的概率模型带来了很大的便捷性。
- 
+
 ### 1.2 什么是 随机场？
 
 每个位置按照某种分布随机赋予一个值 所构成 的 整体。
@@ -66,7 +80,7 @@ $$
 
 - 初始状态矩阵：每个标签的概率矩阵
 - 发射状态矩阵：一个字变成每个标签的概率 $B=\left[b_{i j}\right]_{N \times M}$（$N$为隐藏状态集元素个数，M为观测集元素个数），其中$b_{i j}=P\left(o_{t} | i_{t}\right)$，$(o_{t}$为第i个观测节点 ，$i_t$ 为第i个隐状态节点,即所谓的观测概率（发射概率）；
-- 状态转移级证：标签到每个标签的概率 $A=\left[a_{i j}\right]_{N \times N}$ （N 表示隐藏状态集元素的个数），其中 $a_{i j}=P\left(i_{t+1} | i_{t}\right)$，$i_t$ 即第i个隐状态节点，即所谓的状态转移；
+- 状态转移级证：标签到每个标签的概率 $A=\left[a_{i j}\right]_{N \times N}$ （N 表示隐藏状态集元素的个数），其中  $a_{i j}=P\left(i_{t+1} | i_{t}\right)$，$i_t$  即第i个隐状态节点，即所谓的状态转移；
 
 #### 3.1.4 隐马尔科夫算法 中 两个假设 是什么？
 
@@ -120,6 +134,7 @@ $$
 
 1. 思想
    
+
   找出数据的分布情况，也就是模型参数的确定；
 
   已知观测序列 O=(o1,o2,...,oT) ，估计模型 $\lambda=(A,B,π)$ 参数，使得在该模型下观测序列概率 $P(O|\lambda)$ 最大，即用极大似然估计的方法估计参数
@@ -197,10 +212,12 @@ $$P(I | O)=\prod_{t=1}^{n} P\left(i_{i} | i_{i-1}, o_{i}\right), i=1, \cdots, n$
 
 1. 问题简述
    
+
 MEMM 容易出现标注偏置问题，MEMM倾向于选择拥有更少转移的状态。
 
 2. 问题介绍
    
+
 ![](img/labeledBais.png)
 
 用Viterbi算法解码MEMM，状态1倾向于转换到状态2，同时状态2倾向于保留在状态2。 解码过程细节（需要会viterbi算法这个前提）：
